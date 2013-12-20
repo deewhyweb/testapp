@@ -1,0 +1,37 @@
+[{
+  "fields": {
+    "accessType": "",
+    "collapsed": false,
+    "color": "",
+    "config": {
+      "deploy": {"url": {"dev": "https://mhw-ehjjpug45nu26me45sxq0dlf-dev_mhw.df.dev.u101.feedhenry.net"}},
+      "icon": {"small": "default"},
+      "notification_email": "philip.hayes@feedhenry.com",
+      "preview": {"device": "iphone_4"}
+    },
+    "containerCriteria": "",
+    "description": "",
+    "disabled": false,
+    "discover": false,
+    "dock": "",
+    "email": "philip.hayes@feedhenry.com",
+    "fixedPos": false,
+    "height": 480,
+    "iconLarge": "",
+    "iconSmall": "",
+    "mobileFullScreen": false,
+    "origin": "",
+    "overrides": {},
+    "params": {},
+    "prefsEditable": false,
+    "ratingData": {},
+    "screenShot": "",
+    "sharable": false,
+    "sizeEditable": false,
+    "title": "PH test",
+    "titleEditable": false,
+    "type": "",
+    "width": 320
+  },
+  "sharing": []
+}]
