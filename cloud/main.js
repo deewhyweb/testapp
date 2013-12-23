@@ -14,3 +14,29 @@ exports.getConfig = function(params, callback) {
   return callback(null, {config: cfg.config});
 };
 
+exports.getResult = function(params, callback) {
+	console.log(params.symbol);
+	var soap = require('soap');
+	var parseString = require('xml2js').parseString;
+	var url = 'http://www.webservicex.net/stockquote.asmx?WSDL';
+	var args = {symbol: params.symbol};
+	soap.createClient(url, function(err, client) {
+		if (!err) {
+		    client.GetQuote(args, function(err, xml) {
+		      	
+		        parseString(xml.GetQuoteResult, function (err, jsonResult) {
+					//console.dir(jsonResult.StockQuotes.Stock);
+					return callback(null,jsonResult.StockQuotes.Stock );
+				});
+		    });
+		} else {
+
+			return callback('Unable to connect to WSDL',{result:'failed'});
+
+		}
+	});
+	
+
+
+};
+

@@ -8,21 +8,32 @@ call which will return the remote config.
 
 $fh.ready(function() {
   // The local config variable from config.js can be accessed directly
-  document.getElementById('localConfig').innerHTML = "<p>" + JSON.stringify(config) + "</p>";
 
-  document.getElementById('run_button').onclick = function() {
+
+  document.getElementById('soapcall').onclick = function() {
     // Invoke a cloud action call to get the remote configuration
     // See: http://docs.feedhenry.com/wiki/Actions
-    $fh.act(
-      {
-        act:'getConfig'
-      },
-      function(res) {
-        document.getElementById('cloudConfig').innerHTML = "<p>" + JSON.stringify(res.config) + "</p>";
-      },
-      function(code,errorprops,params) {
-        alert('An error occured: ' + code + ' : ' + errorprops);
-      }
-    );
+    var symbol = document.getElementById('symbol').value;
+    if (symbol && symbol != "") {
+      console.log(symbol);
+      $fh.act(
+        {
+          act: 'getResult',
+          req: {symbol: symbol}
+        },
+        function(res) {
+          console.log(res);
+          document.getElementById('results').innerHTML = "<p>" + JSON.stringify(res) + "</p>";
+        },
+        function(code,errorprops,params) {
+          alert('An error occured: ' + code + ' : ' + errorprops);
+        }
+      );
+    } else {
+
+      alert('Please enter a symbol');
+    }
+    
   };
+
 });
